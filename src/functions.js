@@ -1,13 +1,12 @@
-function getTitle( document ) {
-  // get the title of the document and return it
+function getTitle(document) {
+  var elements = document.getElementsByTagName("title")[0].innerHTML;
+  return elements;
 };
 
-function getNumberOfBikes( document ) {
-  // get the number of bikes donated from the tag with id 'donation-count-alert'
-  // convert it to an integer and return it
-
-  // hint: look up how to get text from inside an element
-  // at https://developer.mozilla.org/en-US/docs/Web/API/Element
+function getNumberOfBikes(document) {
+  var bikeNumber = document.getElementById("donation-count-alert").textContent;
+  var num = Number(bikeNumber);
+  return num;
 };
 
 function getAllButtonText( document ) {
