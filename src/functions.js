@@ -9,11 +9,15 @@ function getNumberOfBikes(document) {
   return num;
 };
 
-function getAllButtonText( document ) {
-  // get the text inside all tags with class 'btn' and return as an array of strings
-  
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection
-  // also you may want to convert the HTMLCollection to an array
+function getAllButtonText(document) {
+  var str = '';
+  var myArr = [];
+  for (i = 0; i < document.getElementsByClassName("btn").length; i++) {
+    var btnClass = document.getElementsByClassName("btn")[i].textContent;  // 3 elements
+    str = btnClass.trim();
+    myArr.push(str);
+  };
+  return myArr;
 };
 
 function getNavLinksText( document ){
@@ -24,6 +28,10 @@ function getNavLinksText( document ){
 function addDashesToLinks( document ){
   // surround the text in navigation bar links with '-'
   // no return needed
+  var links = document.querySelectorAll('.nav-link');
+  links.forEach(function(item){
+    item.textContent = '-' + item.textContent + '-';
+  });
 }
 
 function italicTitles( document ){
