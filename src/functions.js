@@ -20,16 +20,22 @@ function getAllButtonText(document) {
   return myArr;
 };
 
-function getNavLinksText( document ){
-  // get the text content of all 'A' tags inside element with id 'navbarSupportedContent'
-  // reuturn as an array of strings
+function getNavLinksText(document) {
+  var str = '';
+  var myArr = [];
+  var element = document.getElementById("navbarSupportedContent");
+  for (i = 0; i < element.getElementsByTagName("a").length; i++) {
+    var tags = element.getElementsByTagName("a")[i].textContent;
+    str = tags.trim();
+    myArr.push(str);
+  };
+  console.log('hit', myArr);
+  return myArr;
 }
 
-function addDashesToLinks( document ){
-  // surround the text in navigation bar links with '-'
-  // no return needed
+function addDashesToLinks(document) {
   var links = document.querySelectorAll('.nav-link');
-  links.forEach(function(item){
+  links.forEach(function (item) {
     item.textContent = '-' + item.textContent + '-';
   });
 }
@@ -37,6 +43,10 @@ function addDashesToLinks( document ){
 function italicTitles( document ){
   // convert links in 'Upcoming Events' section to italic using `<i>` tag
   // no return needed
+  var tags = document.querySelectorAll('.article-title a');
+  tags.forEach(function (item) {
+    item.innerHTML = "<i>" + item.textContent + "</i>";
+  });
 }
 
 function greenLinks( document ){
