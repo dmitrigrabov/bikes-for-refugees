@@ -40,18 +40,18 @@ function addDashesToLinks(document) {
   });
 }
 
-function italicTitles( document ){
-  // convert links in 'Upcoming Events' section to italic using `<i>` tag
-  // no return needed
+function italicTitles(document) {
   var tags = document.querySelectorAll('.article-title a');
   tags.forEach(function (item) {
     item.innerHTML = "<i>" + item.textContent + "</i>";
   });
 }
 
-function greenLinks( document ){
-  // make `Learn more` links green
-  // no return needed
+function greenLinks(document) {
+  var links = document.querySelectorAll('.article-read-more a');
+  links.forEach(function (item) {
+    item.style.color = "green";
+  });
 }
 
 function addLink( document ){
