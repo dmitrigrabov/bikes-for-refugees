@@ -29,7 +29,6 @@ function getNavLinksText(document) {
     str = tags.trim();
     myArr.push(str);
   };
-  console.log('hit', myArr);
   return myArr;
 }
 
@@ -54,10 +53,16 @@ function greenLinks(document) {
   });
 }
 
-function addLink( document ){
-  // Using `createElement` etc. create a new navbar item link 'Code Your Future' which links to
-  // `https://codeyourfuture.io/`. It should have same structure as the other links
-  // no return needed
+function addLink(document) {
+  var li = document.createElement("li");
+  li.classList = 'nav-item';
+  var link = document.createElement("a");
+  link.classList = 'nav-link';
+  link.innerHTML = "Code Your Future";
+  link.setAttribute("href", "https://codeyourfuture.io/");
+  li.appendChild(link);
+  var parent = document.getElementsByClassName("nav-item");
+  parent[parent.length - 1].appendChild(li);
 }
 
 module.exports = {
